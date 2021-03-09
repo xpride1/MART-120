@@ -1,5 +1,31 @@
-Contact Information
-May I have your name please?
-Best way to reach to you?
-Do you have a job history?
-Do you agree to the following terms?
+<html>
+     <title>Forms</title>
+     <head>
+         <style>
+            body{
+                font-size:large:
+                backgrond-color: white;
+                }
+                </style>
+                <script>
+                    function checkform()
+                    {
+                    
+                    }
+                <script>
+                </head>
+                <body>
+                     <table>
+                         <tr>
+                            <td>Name</td>
+                            <td><input type= "text" id="txtName"></td>
+                         </tr>
+                         <tr>
+                             <td>Email</td>
+                             <td>input type="text" id="txtEmail"></td>
+                         </tr>
+                         <tr>
+                             <td>Phone Number</td>
+                             <td><input type="text" id="txtEmail"></td>
+                         </tr>
+                         <tr>
