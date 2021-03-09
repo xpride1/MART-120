@@ -10,6 +10,11 @@
                 <script>
                     function checkform()
                     {
+                       var name;
+                       name = document.getElementById("txtName").value;
+                       if(name == "")
+                       { 
+                        document.getElementById("txtName").stylebackgroundColor = "red":
                     
                     }
                 <script>
