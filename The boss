@@ -1,0 +1,37 @@
+function setup()
+{
+    createCanvas(350, 350);
+}
+
+function draw()
+{
+    background(110,25,65);
+   
+    -head
+    circle(225,55,103);
+   
+    -eyes
+    point(175,56);
+    point(195,56);
+
+    -nose
+    point(225,80);
+    
+    -mouth
+    ellipse(200,151,19,25)
+
+    -body
+    rec(210,165,65,130);
+    
+    
+    -right arm
+    rect(95,183,37,8);
+    -left arm
+    rec(95,183,37,8);
+    -left leg
+    rec(180,300,4,35);
+    -right leg
+    rec(260,300,4,35);
+    
+  
+}
