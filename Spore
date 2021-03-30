@@ -1,0 +1,29 @@
+// x and y for character
+characterX = 150;
+characterY = 150;
+// character movement
+w = 100; 
+s = 100;
+d = 75;
+a = 75;
+
+// x and y shapes
+shapeX = 40;
+shapeY = 40;
+
+{
+    createCanvas(700, 700);
+
+}
+
+function draw()
+{
+    background(150,60,92);
+
+    // exit message
+    textSize(20);
+    text("Gameover", width-75,height-75)
+
+    //character
+    fill(35,52,148);
+    circle(characterX,characterY,25);
