@@ -27,3 +27,71 @@ function draw()
     //character
     fill(35,52,148);
     circle(characterX,characterY,25);
+    //enemy
+    fill(15,155,14)
+    //shape
+    circle(shapeX, shapeY, 12);
+    
+    //exit
+    if(characterX > width && characterY >width-50
+    {
+       fill(0)
+       stroke(7);
+       textSize(30);
+       text("You Win!) width/2-40, height/2-40);
+     // create the shape based on the mouse click
+    fill(110,120,130);
+    circle(mouseShapeX, mouseShapeY, 15);
+}
+
+function characterMovement()
+{
+    // handle the keys
+    if(keyIsDown(w))
+    {
+        characterY -= 5;   
+    }
+    if(keyIsDown(s))
+    {
+        characterY += 5;   
+    }
+    if(keyIsDown(a))
+    {
+        characterX -= 5;   
+        console.log("movement: " + characterX);
+    }
+    if(keyIsDown(d))
+    {
+        characterX += 5;   
+    }
+}
+
+function character()
+{
+    fill(17,36,123);
+    circle(characterX,characterY,22);
+}
+
+
+function mouseClicked()
+{
+    mouseShapeX = mouseX;
+    mouseShapeY = mouseY;
+}
+/*
+function keyPressed() {
+    if (keyCode === LEFT_ARROW) {
+        characterX -= 5;
+    } 
+    else if (keyCode === RIGHT_ARROW) {
+        characterX += 5;
+    }
+    else if (keyCode === UP_ARROW) {
+        characterY -= 5;
+    }
+    else if (keyCode === DOWN_ARROW) {
+        characterY += 5;
+    }
+  }
+  */
+    
