@@ -1,0 +1,181 @@
+function setup() {
+  createCanvas(500, 500);
+}
+
+function draw() {
+  background(170);
+}
+// x and y for my character
+var characterX = 85;
+var characterY = 85;
+// define the key codes for each letter
+var w = 75;
+var s = 75;
+var a = 55;
+var d = 45;
+
+// x and y for a shape
+var shapeX = 25;
+var shapeY = 25;
+
+var shapeXs = [5];
+var shapeYs = [5];
+var diameters = [10];
+
+var shapeXSpeeds = [15];
+var shapeYSpeeds = [15];
+
+// create a shape when the mouse is clicked
+var mouseShapeX;
+var mouseShapeY;
+
+var rectangleObject;
+
+function setup() {
+    createCanvas(500, 400);
+   
+    // create the object
+    rectangleObject = new Rectangle(400,150, 70, 30, 87, 29, 65); 
+
+    // get a random speed when the it first starts
+    for (var i = 0; i < 20; i++) {
+        shapeXSpeeds[i] = Math.floor(Math.random() * (Math.floor(Math.random() * 3)) + 2);
+        shapeYSpeeds[i] = Math.floor(Math.random() * (Math.floor(Math.random() * 3)) + 2);
+        shapeXs[i] = getRandomNumber(300);
+        shapeYs[i] = getRandomNumber(400);
+        diameters[i] = getRandomNumber(60);
+    }
+
+    createCharacter(150, 200);
+}
+
+function draw() {
+    background(26, 31, 54);
+    stroke(10);
+    
+    // create and display an object
+    rectangleObject.display();
+
+    fill(7);
+
+    // call createBorders function
+    createBorders(20);
+
+    // exit message
+    textSize(10);
+    text("EXIT", width - 40, height - 40)
+
+    //createCharacter(100,100);
+    drawCharacter(28);
+    characterMovement(28);
+
+
+    // potential enemy
+    fill(10, 125, 10);
+    // draw the shape
+    for (var i = 2; i < shapeXs.length; i++) {
+        circle(shapeXs[i], shapeYs[i], diameters[i]);
+        shapeXSpeeds[i] = Math.floor(Math.random() * (Math.floor(Math.random() * 3)) + 2);
+        shapeYSpeeds[i] = Math.floor(Math.random() * (Math.floor(Math.random() * 3)) + 2);
+
+
+
+
+        // move the shape
+        shapeXs[i] += shapeXSpeeds[i];
+        shapeYs[i] += shapeYSpeeds[i];
+        // check to see if the shape has gone out of bounds
+        if (shapeXs[i] > width) {
+            shapeXs[i] = 3;
+        }
+        if (shapeXs[i] < 3) {
+            shapeXs[i] = width;
+        }
+        if (shapeYs[i] > height) {
+            shapeYs[i] = 3;
+        }
+        if (shapeYs[i] < 3) {
+            shapeYs[i] = height;
+        }
+    }
+    // check to see if the character has left the exit
+    if (characterX > width && characterY > width - 50) {
+        fill(1);
+        stroke(4);
+        textSize(20);
+        text("You Win!", width / 1 - 30, height / 1 - 30);
+    }
+
+    // create the shape based on the mouse click
+    fill(100, 75, 80);
+    circle(mouseShapeX, mouseShapeY, 25);
+}
+
+function characterMovement() {
+    // handle the keys
+    if (keyIsDown(w)) {
+        characterY -= 5;
+    }
+    if (keyIsDown(s)) {
+        characterY += 5;
+    }
+    if (keyIsDown(a)) {
+        characterX -= 5;
+        console.log("movement: " + characterX);
+    }
+    if (keyIsDown(d)) {
+        characterX += 5;
+    }
+}
+
+function createCharacter(x, y) {
+    characterX = x;
+    characterY = y;
+}
+
+function drawCharacter() {
+    fill(18, 23, 500);
+    circle(characterX, characterY, 25);
+}
+
+function createBorders(thickness) {
+    // top border
+    rect(2, 2, width, thickness);
+    // left border
+    rect(2, 2, thickness, height);
+    // bottom border
+    rect(2, height - thickness, width, thickness);
+    // right upper border
+    rect(width - thickness, 2, thickness, height - 80);
+}
+
+function mouseClicked() {
+    mouseShapeX = mouseX;
+    mouseShapeY = mouseY;
+}
+
+function getRandomNumber(number) {
+    return Math.floor(Math.random() * number) + 10;
+}
+class Rectangle
+{
+    //constructor
+    // x = x-coordinate, y = y-coordinate, w= width, h = height, r = red, g = green, b = blue
+    constructor(x,y,w,h,r,g,b)
+    {
+        this.x = 300;
+        this.y = 200;
+        this.w = 28;
+        this.h = 40;
+        this.r = 100;
+        this.g = 50;
+        this.b = 25;
+    }
+  
+
+    display()
+    {
+        fill(this.r, this.g, this.b);
+        rect(this.x, this.y, this.w, this.h);
+    }
+}
