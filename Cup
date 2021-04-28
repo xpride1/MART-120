@@ -5,7 +5,7 @@ var speed = 2;
 var score= 0;
 
 function setup() {
-  createCanvas(500, 50);
+  createCanvas(500, 500);
 }
 
 function draw() {
@@ -19,18 +19,18 @@ function draw() {
 }
 
 function startScreen(){
-		background(96, 157, 255)
-		fill(255)
+		background(84, 10, 15)
+		fill(300)
 		textAlign(CENTER);
-		text('WELCOME TO CUP', width / 2, height / 2)
-    text('your goal is catch the ball in the cup', width / 2, height / 2 + 20)
-		text('click to start', width / 2, height / 2 + 20);
+		text('WELCOME TO CUP', width / 2, height / 5)
+    text('your goal is catch the ball in the cup', width / 2, height / 2 + 40)
+		text('click to begin', width / 2, height / 2 + 20);
 		reset();
 }
 
 function gameOn(){
 	background(0)
-  text("score = " + score, 30,20)
+  text("score = " + score, 40,30)
   ellipse(x,y,20,20)
   rectMode(CENTER)
   rect(mouseX,height-10,50,30)
@@ -40,7 +40,7 @@ function gameOn(){
 	 }
   if(y>height-10 && x>mouseX-20 && x<mouseX+20){
   	y=-20
-    speed+=.5
+    speed+= 1
     score+= 1
   }
 	if(y==-20){
@@ -55,9 +55,9 @@ function pickRandom(){
 function endScreen(){
 		background(150)
 		textAlign(CENTER);
-		text('GAME OVER', width / 2, height / 2)
+		text('GAME OVER', width / 2, height / 5)
   	text("SCORE = " + score, width / 2, height / 2 + 20)
-		text('click to play again', width / 2, height / 2 + 40);
+		text('try again', width / 2, height / 2 + 40);
 }
 
 function mousePressed(){
@@ -70,6 +70,6 @@ function mousePressed(){
 
 function reset(){
 	  score=0;
-  	speed=2;
-  	y=-20;
+  	speed=5;
+  	y=-10;
 }
